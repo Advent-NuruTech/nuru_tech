@@ -35,7 +35,7 @@ export default function ContactForm() {
           </div>
           <div>
             <h3 className="text-lg font-semibold text-green-800">Message Sent!</h3>
-            <p className="text-green-700">Thank you for contacting Advent NuruTech. We'll get back to you soon.</p>
+           <p>We&apos;ll get back to you soon.</p>
           </div>
         </div>
         <button

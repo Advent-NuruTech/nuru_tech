@@ -216,10 +216,9 @@ export default function ServicesPage() {
             View Our Work
           </a>
         </div>
-        <p className="mt-8 text-gray-500 dark:text-gray-400 text-sm">
-          We've helped over many clients achieve their digital goals. Let's discuss how we can help you!
-        </p>
+       <p>Let&apos;s build something amazing together!</p>
       </div>
+
     </div>
   );
 }

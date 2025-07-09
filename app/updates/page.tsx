@@ -3,6 +3,7 @@
 import { db } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 // Firestore type
 type Update = {
@@ -54,17 +55,19 @@ export default function UpdatesPage() {
               className="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden flex flex-col"
             >
               {/* Image */}
-              {update.imageUrl ? (
-                <img
-                  src={update.imageUrl}
-                  alt={update.title}
-                  className="w-full h-48 object-cover"
-                />
-              ) : (
-                <div className="w-full h-48 bg-gradient-to-r from-sky-100 to-blue-200 flex items-center justify-center text-blue-600 font-semibold">
-                  No Image Available
-                </div>
-              )}
+          {update.imageUrl ? (
+  <Image
+    src={update.imageUrl}
+    alt={update.title}
+    width={600}
+    height={300}
+    className="w-full h-48 object-cover"
+  />
+) : (
+  <div className="w-full h-48 bg-gradient-to-r from-sky-100 to-blue-200 flex items-center justify-center text-blue-600 font-semibold">
+    No Image Available
+  </div>
+)}
 
               {/* Details */}
               <div className="p-6 flex flex-col flex-1">

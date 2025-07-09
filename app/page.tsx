@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { db } from "@/lib/firebase";
-import { collection, getDocs, limit, orderBy, query } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 type Update = {
   id: string;
@@ -155,9 +155,7 @@ export default async function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-6">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Let's discuss how we can help you achieve your digital goals.
-          </p>
+         <p>It&apos;s easy to get started!</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
