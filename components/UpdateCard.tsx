@@ -1,6 +1,5 @@
 // components/UpdateCard.tsx
 import Link from "next/link";
-import Image from "next/image";
 
 interface UpdateCardProps {
   id: string;
