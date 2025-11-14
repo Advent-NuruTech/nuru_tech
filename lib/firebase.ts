@@ -3,6 +3,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAnalytics, isSupported } from "firebase/analytics";
+import { getAuth } from "firebase/auth"; // ← added
 
 // Firebase config
 const firebaseConfig = {
@@ -21,6 +22,7 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 // Init services
 const db = getFirestore(app);
 const storage = getStorage(app);
+const auth = getAuth(app); // ← added
 
 // Optional: Enable analytics in browser
 let analytics: ReturnType<typeof getAnalytics> | undefined;
@@ -32,4 +34,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { app, db, storage, analytics };
+export { app, db, storage, auth, analytics };
