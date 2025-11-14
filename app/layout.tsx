@@ -36,31 +36,43 @@ export const metadata = {
   creator: "Advent NuruTech",
   publisher: "Advent NuruTech",
 
-  // Favicon
+  // Favicon / Logo
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 
   // OpenGraph for social media
   openGraph: {
-    title: "Advent Nurutech – Design.Develop.Deploy",
+    title: "Advent Nurutech – Design. Develop. Deploy",
     description:
       "Transforming businesses and ministries through ethical, modern, and intelligent technology solutions.",
     url: "https://adventnurutech.xyz",
-    siteName: "Advent Nurutech",
+    siteName: "Advent NuruTech",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/favicon.ico", // your official logo
         width: 200,
         height: 200,
-        alt: "Advent Nurutech Logo",
+        alt: "Advent NuruTech Logo",
       },
     ],
     locale: "en_US",
     type: "website",
   },
 
-  // SEO for mobile
+  // Twitter Card
+  twitter: {
+    card: "summary_large_image",
+    title: "Advent NuruTech – Design. Develop. Deploy",
+    description:
+      "Transforming businesses and ministries through ethical, modern, and intelligent technology solutions.",
+    images: ["/favicon.ico"],
+    creator: "@AdventNuruTech",
+  },
+
+  // SEO for mobile & canonical
   metadataBase: new URL("https://adventnurutech.xyz"),
 };
 
