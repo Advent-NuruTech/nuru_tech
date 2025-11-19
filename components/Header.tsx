@@ -11,14 +11,32 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState("/");
   const menuRef = useRef<HTMLDivElement>(null);
 
+  const ShieldIcon = (
+    <svg
+      className="w-5 h-5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 1l8 4v6c0 5-3.5 9.7-8 11-4.5-1.3-8-6-8-11V5l8-4z" />
+      <circle cx="12" cy="11" r="2" />
+      <path d="M12 13v3" />
+    </svg>
+  );
+
   const navItems = [
     { href: "/", label: "Home", icon: "🏠" },
     { href: "/services", label: "Services", icon: "🚀" },
     { href: "/updates", label: "Updates", icon: "📢" },
     { href: "/contact", label: "Contact", icon: "📞" },
     { href: "/faq", label: "FAQ", icon: "❓" },
-    { href: "/booking", label: "Booking", icon: "📅" }
+    { href: "/booking", label: "Booking", icon: "📅" },
 
+    // Updated policy item with SVG shield
+    { href: "/policy", label: "Policies", icon: ShieldIcon },
   ];
 
   useEffect(() => setMounted(true), []);
@@ -85,7 +103,9 @@ export default function Header() {
                 }`}
               >
                 <span className="flex items-center gap-2">
-                  <span className="text-sm opacity-70">{item.icon}</span>
+                  <span className="text-sm opacity-70 flex items-center">
+                    {item.icon}
+                  </span>
                   {item.label}
                 </span>
 
@@ -189,7 +209,7 @@ export default function Header() {
                   : "text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-neutral-800"
               }`}
             >
-              <span className="text-xl">{item.icon}</span>
+              <span className="text-xl flex items-center">{item.icon}</span>
               {item.label}
             </Link>
           ))}
@@ -212,8 +232,8 @@ export default function Header() {
               Ready to transform your digital presence?
             </p>
             <p className="text-xs text-gray-400 dark:text-gray-500">
-             Let&apos;s build something amazing together! 🚀
-</p>
+              Let&apos;s build something amazing together! 🚀
+            </p>
           </div>
         </div>
       </div>

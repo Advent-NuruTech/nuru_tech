@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 // ⚡ STRONG SEO METADATA FOR ADVENT NURUTECH
 export const metadata = {
-  title: "Advent Nurutech – Innovating With Purpose | Ethical AI, Web & Automation Solutions",
+  title: "Advent Nurutech – Design. Develop. Deploy | Ethical AI, Web & Automation Solutions",
   description:
     "Advent Nurutech empowers businesses, ministries, and communities with ethical technology — including AI chatbots, web & mobile development, automation, cloud tools, digital literacy, church systems, and more.",
   keywords: [
@@ -31,10 +31,11 @@ export const metadata = {
     "Tech for ministries",
     "SDA digital tools",
     "E-commerce Kenya",
+      "virtual assistant kenya",
   ],
   authors: [{ name: "Advent Nurutech" }],
-  creator: "Advent NuruTech",
-  publisher: "Advent NuruTech",
+  creator: "Advent Nurutech",
+  publisher: "Advent Nurutech",
 
   // Favicon / Logo
   icons: {
