@@ -10,6 +10,12 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@tiptap/extension-color": "^3.15.0",
+    "@tiptap/extension-link": "^3.15.0",
+    "@tiptap/extension-text-style": "^3.15.0",
+    "@tiptap/react": "^3.15.0",
+    "@tiptap/starter-kit": "^3.15.0",
+    "cloudinary": "^2.8.0",
     "firebase": "^11.10.0",
     "framer-motion": "^12.23.24",
     "icons": "^1.0.0",

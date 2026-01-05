@@ -15,7 +15,7 @@ export default function Footer() {
     { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contact" },
     { name: "FAQ", href: "/faq" },
-    { name: "Blog", href: "updates" }
+    { name: "Blog", href: "/blog" }
   ];
 
   const services = [
