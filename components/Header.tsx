@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { FaHome, FaRocket, FaBullhorn, FaPhone, FaQuestionCircle, FaCalendarAlt, FaHeart } from "react-icons/fa";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,18 +28,17 @@ export default function Header() {
     </svg>
   );
 
-  const navItems = [
-    { href: "/", label: "Home", icon: "🏠" },
-    { href: "/services", label: "Services", icon: "🚀" },
-    { href: "/updates", label: "Updates", icon: "📢" },
-    { href: "/contact", label: "Contact", icon: "📞" },
-    { href: "/faq", label: "FAQ", icon: "❓" },
-    { href: "/booking", label: "Booking", icon: "📅" },
-
-    // Updated policy item with SVG shield
-    { href: "/policy", label: "Policies", icon: ShieldIcon },
-  ];
-
+ 
+const navItems = [
+  { href: "/", label: "Home", icon: <FaHome className="w-5 h-5" /> },
+  { href: "/services", label: "Services", icon: <FaRocket className="w-5 h-5" /> },
+  { href: "/updates", label: "Updates", icon: <FaBullhorn className="w-5 h-5" /> },
+  { href: "/contact", label: "Contact", icon: <FaPhone className="w-5 h-5" /> },
+  { href: "/faq", label: "FAQ", icon: <FaQuestionCircle className="w-5 h-5" /> },
+  { href: "/booking", label: "Booking", icon: <FaCalendarAlt className="w-5 h-5" /> },
+  { href: "/donate", label: "Donate", icon: <FaHeart className="w-5 h-5 text-red-500" /> },
+  { href: "/policy", label: "Policies", icon: ShieldIcon }, // keep your custom SVG
+];
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
