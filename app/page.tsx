@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { db } from "@/lib/firebase";
 import { collection, getDocs } from "firebase/firestore";
+
 import QuoteCarousel from "@/components/QuoteCarousel";
 
 type Update = {
@@ -43,18 +44,8 @@ export default async function HomePage() {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 mb-6 leading-tight">
-            Advent NuruTech
+            Advent Nurutech
           </h1>
-          
-          {/* Rotating Quotes Carousel */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <QuoteCarousel />
-          </div>
-
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Empowering businesses with <span className="font-semibold text-blue-600 dark:text-blue-400">cutting-edge technology solutions</span> that drive growth, innovation, and digital transformation.
-          </p>
-          
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
@@ -77,7 +68,16 @@ export default async function HomePage() {
               </span>
             </Link>
           </div>
+          {/* Rotating Quotes Carousel */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <QuoteCarousel />
+          </div>
 
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Empowering businesses with <span className="font-semibold text-blue-600 dark:text-blue-400">cutting-edge technology solutions</span> that drive growth, innovation, and digital transformation.
+          </p>
+          
+         
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center gap-2">

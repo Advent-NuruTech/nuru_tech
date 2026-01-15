@@ -2,69 +2,69 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-
 const quotes = [
   {
     id: 1,
-    text: "Technology is best when it brings people together.",
-    author: "Matt Mullenweg",
-    role: "Founder of WordPress"
+    text: "We deliver end-to-end digital age solutions",
+    author: "Advent Nurutech",
+    role: "Services"
   },
   {
     id: 2,
-    text: "The science of today is the technology of tomorrow.",
-    author: "Edward Teller",
-    role: "Theoretical Physicist"
+    text: "Our solutions are built to work seamlessly across mobile, tablet, and desktop—ensuring consistent experiences everywhere.",
+    author: "Advent NuruTech",
+    role: "Responsive Design"
   },
   {
     id: 3,
-    text: "Any sufficiently advanced technology is equivalent to magic.",
-    author: "Arthur C. Clarke",
-    role: "Science Fiction Writer"
+    text: "We partner with startups, small businesses, and enterprises—crafting solutions that align with goals, scale, and budget.",
+    author: "Advent NuruTech",
+    role: "Partnerships"
   },
   {
     id: 4,
-    text: "Innovation distinguishes between a leader and a follower.",
-    author: "Steve Jobs",
-    role: "Co-founder of Apple"
+    text: "From simple websites to complex applications, we deliver with clear timelines and transparent processes.",
+    author: "Advent NuruTech",
+    role: "Project Delivery"
   },
   {
     id: 5,
-    text: "The digital revolution is far more significant than the invention of writing or even of printing.",
-    author: "Douglas Engelbart",
-    role: "Computer Pioneer"
+    text: "We build scalable e-commerce platforms with secure payments,smart inventory management,and growth-focused analytics.",
+    author: "Advent NuruTech",
+    role: "E-Commerce"
   },
   {
     id: 6,
-    text: "We are changing the world with technology.",
-    author: "Bill Gates",
-    role: "Co-founder of Microsoft"
+    text: "Our technology stack is modern and future-ready—React, Next.js, TypeScript, Python, AI APIs, and cloud platforms.",
+    author: "Advent NuruTech",
+    role: "Technology"
   },
   {
     id: 7,
-    text: "The advance of technology is based on making it fit in so that you don't really even notice it, so it's part of everyday life.",
-    author: "Larry Page",
-    role: "Co-founder of Google"
+    text: "Support doesn’t end at launch. We provide continuous maintenance, optimization, and 24/7 technical support.",
+    author: "Advent NuruTech",
+    role: "Support & Maintenance"
   },
   {
     id: 8,
-    text: "Technology is nothing. What's important is that you have a faith in people, that they're basically good and smart.",
-    author: "Steve Jobs",
-    role: "Co-founder of Apple"
+    text: "We integrate seamlessly with existing systems and modernize legacy platforms through smart digital transformation.",
+    author: "Advent NuruTech",
+    role: "Digital Transformation"
   },
   {
     id: 9,
-    text: "The great growling engine of change – technology.",
-    author: "Alvin Toffler",
-    role: "Futurist & Writer"
+    text: "Every project is designed for performance, security, and long-term sustainability.",
+    author: "Advent NuruTech",
+    role: "Quality Assurance"
   },
   {
     id: 10,
-    text: "The best way to predict the future is to invent it.",
-    author: "Alan Kay",
-    role: "Computer Scientist"
+    text: "We don’t just build products—we build digital foundations that help brands grow and thrive.",
+    author: "Advent NuruTech",
+    role: "Our Commitment"
   }
 ];
+
 
 export default function QuoteCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
