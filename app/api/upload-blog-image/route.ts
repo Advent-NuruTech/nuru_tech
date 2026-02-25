@@ -1,61 +1,81 @@
 import { v2 as cloudinary } from "cloudinary";
 import { NextResponse } from "next/server";
+import { checkRateLimit, getClientIp } from "@/lib/security/rateLimit";
 
-/* ================================
-   Cloudinary Config (SERVER ONLY)
-================================ */
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!, // da8kzhxwh
-  api_key: process.env.CLOUDINARY_API_KEY!,       // 343474372244282
-  api_secret: process.env.CLOUDINARY_API_SECRET!, // yqLZdfokZywOmXc4XhE
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
+  api_key: process.env.CLOUDINARY_API_KEY!,
+  api_secret: process.env.CLOUDINARY_API_SECRET!,
 });
 
-/* ================================
-   POST: Upload Blog Image
-================================ */
+const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024;
+const ALLOWED_TYPES = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "video/mp4",
+  "video/webm",
+]);
+
+function sanitizeFolder(input: string | null): string {
+  if (!input) return "nurutech/uploads";
+  return input.replace(/[^a-zA-Z0-9/_-]/g, "").slice(0, 80) || "nurutech/uploads";
+}
+
 export async function POST(req: Request) {
   try {
-    const formData = await req.formData();
-    const file = formData.get("file");
-
-    if (!file || !(file instanceof File)) {
+    const ip = getClientIp(req);
+    const rate = checkRateLimit(`${ip}:upload`, 10, 60_000);
+    if (!rate.allowed) {
       return NextResponse.json(
-        { error: "No file provided" },
-        { status: 400 }
+        { error: "Too many uploads. Please wait and retry." },
+        { status: 429 }
       );
     }
 
-    /* Convert File → Buffer */
+    const formData = await req.formData();
+    const file = formData.get("file");
+    const folder = sanitizeFolder(formData.get("folder")?.toString() || null);
+
+    if (!file || !(file instanceof File)) {
+      return NextResponse.json({ error: "No file provided" }, { status: 400 });
+    }
+
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      return NextResponse.json({ error: "File too large. Max size is 10MB." }, { status: 400 });
+    }
+
+    if (!ALLOWED_TYPES.has(file.type)) {
+      return NextResponse.json({ error: "Unsupported file type." }, { status: 400 });
+    }
+
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
+    const resourceType = file.type.startsWith("video/") ? "video" : "image";
 
-    /* Upload using stream (BEST PRACTICE) */
-    const uploadResult = await new Promise<{ secure_url: string }>(
-      (resolve, reject) => {
-        cloudinary.uploader
-          .upload_stream(
-            {
-              folder: "edenlife/blog",
-              upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET, // nuru
-              resource_type: "image",
-            },
-            (error, result) => {
-              if (error) reject(error);
-              else resolve(result as { secure_url: string });
-            }
-          )
-          .end(buffer);
-      }
-    );
+    const uploadResult = await new Promise<{ secure_url: string; bytes: number }>((resolve, reject) => {
+      cloudinary.uploader
+        .upload_stream(
+          {
+            folder,
+            upload_preset: process.env.CLOUDINARY_UPLOAD_PRESET,
+            resource_type: resourceType,
+          },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result as { secure_url: string; bytes: number });
+          }
+        )
+        .end(buffer);
+    });
 
     return NextResponse.json({
       url: uploadResult.secure_url,
+      size: uploadResult.bytes,
     });
   } catch (error) {
     console.error("Cloudinary upload error:", error);
-    return NextResponse.json(
-      { error: "Image upload failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Image upload failed" }, { status: 500 });
   }
 }

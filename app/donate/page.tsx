@@ -3,12 +3,30 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+type PayPalHostedButtons = {
+  HostedButtons: (args: {
+    hostedButtonId: string;
+    style: {
+      layout: "horizontal" | "vertical";
+      shape: "rect" | "pill";
+      color: string;
+      label: string;
+    };
+  }) => { render: (selector: string) => void };
+};
+
+declare global {
+  interface Window {
+    paypal?: PayPalHostedButtons;
+  }
+}
+
 export default function DonatePage() {
   const [isSdkReady, setIsSdkReady] = useState(false);
 
   useEffect(() => {
     // Avoid loading multiple times
-    if ((window as any).paypal) {
+    if (window.paypal) {
       setIsSdkReady(true);
       return;
     }
@@ -30,13 +48,12 @@ export default function DonatePage() {
 
     // Render PayPal hosted button
     const container = document.getElementById("paypal-container");
-    if (container && (window as any).paypal) {
+    if (container && window.paypal) {
       try {
         // Clear previous renders
         container.innerHTML = "";
 
-        // @ts-ignore
-        (window as any).paypal.HostedButtons({
+        window.paypal.HostedButtons({
           hostedButtonId: "97A38BP4PYLES",
           style: {
             layout: "horizontal", // horizontal layout

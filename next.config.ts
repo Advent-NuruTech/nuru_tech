@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  poweredByHeader: false,
   images: {
-    domains: ["your-image-domain.com"], // add your image domains here
+    remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
+    ],
   },
 };
 

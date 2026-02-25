@@ -16,13 +16,13 @@ export default function UpdateCard({ id, title, summary, imageUrl }: UpdateCardP
           <img
             src={imageUrl}
             alt={title}
-            className="w-full h-40 object-cover rounded mb-4"
+            className="mb-4 h-40 w-full rounded bg-neutral-100 object-contain p-2"
           />
         )}
         <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
         <p className="text-sm text-gray-600 mt-1">{summary}</p>
-        <span className="text-blue-500 mt-2 inline-block hover:underline">
-          Read More →
+        <span className="mt-2 inline-block text-blue-500 hover:underline">
+          Read More {"->"}
         </span>
       </div>
     </Link>

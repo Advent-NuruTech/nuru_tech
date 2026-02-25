@@ -6,7 +6,7 @@ type Blog = {
   id: string;
   title: string;
   content: string;
-  imageURL?: string;
+  imageUrl?: string;
 };
 
 export default async function BlogPage() {
@@ -21,13 +21,13 @@ export default async function BlogPage() {
       id: doc.id,
       title: doc.data().title,
       content: doc.data().content,
-      imageURL: doc.data().imageURL,
+      imageUrl: doc.data().imageUrl || doc.data().imageURL,
     })
   );
 
   return (
     <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Our Blog</h1>
+      <h1 className="mb-6 text-center text-4xl font-black">Our Blog</h1>
 
       {blogs.map((blog) => (
         <BlogCard key={blog.id} blog={blog} />

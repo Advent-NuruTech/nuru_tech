@@ -3,7 +3,7 @@ import { useState } from "react";
 import { submitContact } from "@/lib/submitContact";
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", location: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", location: "", message: "", website: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -41,7 +41,7 @@ export default function ContactForm() {
         <button
           onClick={() => {
             setSubmitted(false);
-            setForm({ name: "", phone: "", email: "", location: "", message: "" });
+            setForm({ name: "", phone: "", email: "", location: "", message: "", website: "" });
           }}
           className="mt-4 text-green-600 hover:text-green-800 font-medium text-sm underline"
         >
@@ -54,6 +54,21 @@ export default function ContactForm() {
   return (
     <div className="max-w-md mx-auto">
       <form onSubmit={handleSubmit} className="space-y-6">
+        <div>
+          <label htmlFor="website" className="sr-only">
+            Website
+          </label>
+          <input
+            id="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            value={form.website}
+            onChange={(e) => setForm({ ...form, website: e.target.value })}
+          />
+        </div>
+
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
             Full Name <span className="text-red-500">*</span>

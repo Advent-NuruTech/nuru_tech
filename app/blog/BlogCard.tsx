@@ -6,7 +6,7 @@ type Blog = {
   id: string;
   title: string;
   content: string;
-  imageURL?: string;
+  imageUrl?: string;
 };
 
 function getWordCount(html: string) {
@@ -29,16 +29,16 @@ export default function BlogCard({ blog }: { blog: Blog }) {
     <div className="mb-10 border-b pb-6">
       <h2 className="text-xl font-bold mb-2">{blog.title}</h2>
 
-      {blog.imageURL && (
+      {blog.imageUrl && (
         <img
-          src={blog.imageURL}
+          src={blog.imageUrl}
           alt={blog.title}
           className="w-full h-auto object-contain rounded-lg mb-4"
           loading="lazy"
         />
       )}
 
-      <div className="prose max-w-none">
+      <div className="prose max-w-none dark:prose-invert">
         {expanded || !needsReadMore ? (
           <div dangerouslySetInnerHTML={{ __html: blog.content }} />
         ) : (
