@@ -19,9 +19,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 const navItems = [
   { href: "/", label: "Home", icon: <FaHome className="h-4 w-4" /> },
   { href: "/services", label: "Services", icon: <FaRocket className="h-4 w-4" /> },
-  { href: "/portfolio", label: "Portfolio", icon: <FaFolderOpen className="h-4 w-4" /> },
-  { href: "/updates", label: "Updates", icon: <FaBullhorn className="h-4 w-4" /> },
-  { href: "/testimonials", label: "Testimonials", icon: <FaStar className="h-4 w-4" /> },
+  
+
   { href: "/donate", label: "Donate", icon: <FaGift className="h-4 w-4" /> },
   { href: "/booking", label: "Booking", icon: <FaCalendarAlt className="h-4 w-4" /> },
   { href: "/contact", label: "Contact", icon: <FaPhone className="h-4 w-4" /> },

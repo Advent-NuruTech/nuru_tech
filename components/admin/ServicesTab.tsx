@@ -23,7 +23,7 @@ import {
   secondaryButtonClass,
 } from "@/components/admin/AdminPrimitives";
 
-const initialForm = { title: "", description: "", icon: "FaCode" };
+const initialForm = { title: "", description: "" };
 
 export default function ServicesTab() {
   const [services, setServices] = useState<ServiceItem[]>([]);
@@ -47,13 +47,13 @@ export default function ServicesTab() {
   const submit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!form.title || !form.description) return;
+
     setSaving(true);
     setStatus("");
 
     const payload = {
       title: form.title,
       description: form.description,
-      icon: form.icon,
       order: services.length,
       updatedAt: serverTimestamp(),
     };
@@ -67,6 +67,7 @@ export default function ServicesTab() {
         await addDoc(collection(db, "services"), payload);
         setStatus("Service added successfully.");
       }
+
       setForm(initialForm);
     } catch {
       setStatus("Failed to save service.");
@@ -83,8 +84,11 @@ export default function ServicesTab() {
             label="Service Title"
             value={form.title}
             required
-            onChange={(value) => setForm((prev) => ({ ...prev, title: value }))}
+            onChange={(value) =>
+              setForm((prev) => ({ ...prev, title: value }))
+            }
           />
+
           <TextArea
             label="Description"
             value={form.description}
@@ -93,19 +97,20 @@ export default function ServicesTab() {
               setForm((prev) => ({ ...prev, description: value }))
             }
           />
-          <Input
-            label="Icon Name"
-            value={form.icon}
-            onChange={(value) => setForm((prev) => ({ ...prev, icon: value }))}
-          />
+
           <div className="flex gap-2">
-            <button type="submit" className={primaryButtonClass} disabled={saving}>
+            <button
+              type="submit"
+              className={primaryButtonClass}
+              disabled={saving}
+            >
               {saving
                 ? "Saving..."
                 : editingId
                 ? "Update Service"
                 : "Add Service"}
             </button>
+
             {editingId && (
               <button
                 type="button"
@@ -119,6 +124,7 @@ export default function ServicesTab() {
               </button>
             )}
           </div>
+
           {status && (
             <p className="rounded-xl bg-blue-50 px-3 py-2 text-sm text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
               {status}
@@ -144,16 +150,18 @@ export default function ServicesTab() {
                       setForm({
                         title: item.title,
                         description: item.description,
-                        icon: item.icon || "FaCode",
                       });
                     }}
                   >
                     Edit
                   </button>
+
                   <button
                     type="button"
                     className={dangerLinkClass}
-                    onClick={() => deleteDoc(doc(db, "services", item.id))}
+                    onClick={() =>
+                      deleteDoc(doc(db, "services", item.id))
+                    }
                   >
                     Delete
                   </button>

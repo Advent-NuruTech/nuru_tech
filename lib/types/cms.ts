@@ -16,7 +16,7 @@ export type ServiceItem = {
   id: string;
   title: string;
   description: string;
-  icon: string;
+  
   order: number;
   updatedAt?: unknown;
 };
