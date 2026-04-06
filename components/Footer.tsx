@@ -24,8 +24,7 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-white">Support</h4>
           <ul className="mt-3 space-y-2 text-sm text-neutral-400">
-            <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/booking">Book Consultation</Link></li>
+         
             <li><Link href="/faq">FAQ</Link></li>
             <li><Link href="/policy">Policies</Link></li>
           </ul>
@@ -34,14 +33,14 @@ export default function Footer() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wide text-white">Connect</h4>
           <p className="mt-3 text-sm text-neutral-400">Kisumu, Kenya</p>
-          <p className="text-sm text-neutral-400">nurutech36@gmail.com</p>
+          <p className="text-sm text-neutral-400">adventnurutech@gmail.com</p>
           <p className="text-sm text-neutral-400">+254 105 178 685</p>
           <div className="mt-4 flex gap-2">
             {[
-              { href: "https://www.facebook.com/profile.php?id=61576843971047", icon: FaFacebookF },
-              { href: "https://www.linkedin.com", icon: FaLinkedinIn },
-              { href: "https://www.instagram.com", icon: FaInstagram },
-              { href: "https://www.youtube.com/@NuruTech-h5d", icon: FaYoutube },
+              { href: "#", icon: FaFacebookF },
+              { href: "#", icon: FaLinkedinIn },
+              { href: "#", icon: FaInstagram },
+              { href: "#", icon: FaYoutube },
               { href: "https://wa.me/254105178685", icon: FaWhatsapp },
             ].map((item) => (
               <a

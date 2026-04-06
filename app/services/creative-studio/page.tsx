@@ -17,8 +17,8 @@ const creativeServices = [
   },
   {
     id: "gfx-03",
-    title: "Graphic Design: Banners & Flyers",
-    description: "Professional brand identity and marketing materials. We design banners and flyers that represent your brand's modern professional edge.",
+    title: "Graphic Design: Banners, YouTube Thumbnails & Flyers",
+    description: "Professional brand identity and marketing materials. We design banners, youtube thumbnails and flyers that represent your brand's modern professional edge.",
     image: "http://googleusercontent.com/image_collection/image_retrieval/8947684232893878767_0",
     service: "Design"
   },
@@ -79,10 +79,7 @@ export default function CreativeStudioPage() {
                 <p className="mt-4 text-neutral-600 dark:text-neutral-400">
                   {item.description}
                 </p>
-                <button className="mt-6 flex items-center gap-2 text-sm font-black uppercase tracking-wider hover:text-blue-600 dark:text-white dark:hover:text-blue-400">
-                  View Case Study
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </button>
+                
               </div>
             </div>
           ))}

@@ -97,9 +97,7 @@ export default function TrainingPage() {
           <button className="rounded-full bg-white px-8 py-4 font-bold text-neutral-900 transition hover:bg-neutral-200">
             Book Team Training
           </button>
-          <button className="rounded-full border border-white/30 px-8 py-4 font-bold transition hover:bg-white/10">
-            View Syllabus
-          </button>
+          
         </div>
       </section>
     </div>

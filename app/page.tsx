@@ -180,16 +180,7 @@ export default async function HomePage() {
              
             
 
-      <section className="mx-auto mt-14 max-w-6xl">
-        <div className="mb-5 flex items-end justify-between">
-          <SectionHeading className="mb-0">Testimonials</SectionHeading>
-          <Link href="/testimonials" className="text-sm font-semibold text-cyan-700 hover:underline dark:text-cyan-300">
-            View All
-          </Link>
-        </div>
-        <QuoteCarousel />
-      </section>
-
+   
 
       <section className="mx-auto mt-16 max-w-6xl rounded-3xl border border-cyan-300 bg-gradient-to-r from-cyan-500 to-blue-600 p-8 text-white">
         <h2 className="text-3xl font-black md:text-4xl">Ready to build your next platform?</h2>

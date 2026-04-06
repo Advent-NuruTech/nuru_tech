@@ -30,7 +30,7 @@ const fallbackServices: EnhancedService[] = [
     id: "2",
     title: "E-commerce & Booking Systems",
     description: "Scalable platforms for hotels, restaurants, and retail outlets.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800",
+    image: "/services/commerce.jpeg",
     category: "web",
     slug: "/services/web-development",
     order: 2,

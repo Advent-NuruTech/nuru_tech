@@ -1,4 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
+import Link from "next/link";
 import { db } from "@/lib/firebase";
 
 const aiServices = [
@@ -85,10 +86,14 @@ export default async function AIAutomationPage() {
                   {service.description}
                 </p>
                 <div className="mt-auto">
-                  <button className="flex items-center gap-2 font-bold text-blue-400 transition hover:text-blue-300">
-                    Deploy this Agent 
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                  </button>
+                 <Link href="/contact">
+  <button className="flex items-center gap-2 font-bold text-blue-400 transition hover:text-blue-300">
+    Deploy this Agent 
+    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+    </svg>
+  </button>
+</Link>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
+import Link from "next/link";
 import { db } from "@/lib/firebase";
 import Image from "next/image";
 
@@ -19,16 +20,16 @@ const webServices = [
   },
   {
     id: "min-03",
-    title: "Ministry & Govt Portals",
-    description: "High-security websites designed for government agencies and ministries with public service integration.",
+    title: "Ministry & CBOs ",
+    description: "High-security websites designed for church minstirs , CBO's, agencies and etc",
     image: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?q=80&w=1200",
-    features: ["G2C Services", "Public Announcements", "Document Repositories"]
+    features: ["Lessons Services", "Public Announcements", "Realtime events updates", "Legal Donations Tabs"]
   },
   {
     id: "eco-04",
     title: "E-commerce & Booking",
     description: "Advanced retail platforms, hotel reservation engines, and restaurant table booking systems.",
-    image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=1200",
+    image: "/services/commerce.jpeg",
     features: ["Payment Gateways", "Real-time Booking", "Inventory Sync"]
   },
   {
@@ -94,26 +95,15 @@ export default async function WebDevelopmentPage() {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-10 rounded-full bg-neutral-900 px-8 py-4 text-sm font-bold text-white transition hover:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-blue-500">
-                  Consult for Project
-                </button>
+               <Link
+  href="/booking"
+  className="mt-10 inline-block rounded-full bg-neutral-900 px-8 py-4 text-sm font-bold text-white transition hover:bg-blue-600 dark:bg-white dark:text-black dark:hover:bg-blue-500"
+>
+  Consult for Project
+</Link>
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Tech Stack Callout */}
-      <section className="bg-neutral-50 py-20 dark:bg-neutral-900/50">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold">Our Modern Tech Stack</h3>
-          <div className="mt-8 flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
-             <span className="text-xl font-bold">React / Next.js</span>
-             <span className="text-xl font-bold">Node.js</span>
-             <span className="text-xl font-bold">PostgreSQL</span>
-             <span className="text-xl font-bold">Firebase</span>
-             <span className="text-xl font-bold">Tailwind CSS</span>
-          </div>
         </div>
       </section>
     </div>
