@@ -10,7 +10,7 @@ const initialSettings: SiteSettings = {
   id: "site",
   siteName: "Advent NuruTech",
   supportEmail: "nurutech36@gmail.com",
-  supportPhone: "+254 105 178 685",
+  supportPhone: "+254 142 225 233",
   defaultTheme: "light",
 };
 

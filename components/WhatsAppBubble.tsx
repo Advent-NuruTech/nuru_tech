@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppBubble() {
-  const whatsappNumber = '254105178685';
-  const preFilledMessage = encodeURIComponent("Hello nurutech 👋, I'm from your website. I would like to inquire about... ");
+  const whatsappNumber = '254142225233';
+  const preFilledMessage = encodeURIComponent("Hello advent 👋, I'm from your website. I would like to inquire about... ");
 
   return (
     <Link

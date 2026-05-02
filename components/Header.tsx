@@ -67,8 +67,8 @@ export default function Header() {
             />
           </div>
           <div>
-            <p className="text-xl font-black text-neutral-900 dark:text-white">NuruTech</p>
-            <p className="text-xs text-neutral-500 dark:text-neutral-400">Digital Innovation</p>
+            <p className="text-xl font-black text-neutral-900 dark:text-white">Advent Nurutech</p>
+            <p className="text-xs text-neutral-500 dark:text-neutral-400">Your Solution Patner</p>
           </div>
         </Link>
 

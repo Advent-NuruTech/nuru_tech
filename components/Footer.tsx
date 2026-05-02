@@ -34,14 +34,14 @@ export default function Footer() {
           <h4 className="text-sm font-semibold uppercase tracking-wide text-white">Connect</h4>
           <p className="mt-3 text-sm text-neutral-400">Kisumu, Kenya</p>
           <p className="text-sm text-neutral-400">adventnurutech@gmail.com</p>
-          <p className="text-sm text-neutral-400">+254 105 178 685</p>
+          <p className="text-sm text-neutral-400">+254 142 225 233</p>
           <div className="mt-4 flex gap-2">
             {[
               { href: "#", icon: FaFacebookF },
               { href: "#", icon: FaLinkedinIn },
               { href: "#", icon: FaInstagram },
               { href: "#", icon: FaYoutube },
-              { href: "https://wa.me/254105178685", icon: FaWhatsapp },
+              { href: "https://wa.me/254142225233", icon: FaWhatsapp },
             ].map((item) => (
               <a
                 key={item.href}
@@ -59,7 +59,7 @@ export default function Footer() {
 
       <div className="border-t border-neutral-800">
         <div className="mx-auto flex max-w-[1700px] items-center justify-between gap-4 px-4 py-4 text-sm text-neutral-400 sm:px-6 lg:px-10">
-          <p>© {year} Advent NuruTech. All rights reserved.</p>
+          <p>© {year} ANTS. All rights reserved.</p>
           <button
             type="button"
             onClick={scrollToTop}

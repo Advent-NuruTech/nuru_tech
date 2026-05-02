@@ -82,7 +82,7 @@ export default function ContactPage() {
                         Call Us
                       </h3>
                       <p className="text-gray-600 dark:text-gray-300 text-lg font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200">
-                        +254 105 178 685
+                        +254142225233
                       </p>
                     </div>
                   </div>

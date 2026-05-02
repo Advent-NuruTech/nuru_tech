@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "How can I contact NuruTech?",
     answer:
-      "You can reach us via our contact form, email at nurutech36@gmail.com, or call us at +254 105 178 685. We&apos;re available Sunday-Thursday 6:00 PM - 6:00 PM.",
+      "You can reach us via our contact form, email at nurutech36@gmail.com, or call us at +254 142 225 233. We&apos;re available Sunday-Thursday 6:00 PM - 6:00 PM.",
     link: "/contact",
     category: "General",
     icon: "📞",

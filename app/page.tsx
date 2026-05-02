@@ -5,7 +5,7 @@ import { db } from "@/lib/firebase";
 import QuoteCarousel from "@/components/QuoteCarousel";
 import HeroSection from "@/components/HeroSection";
 import ExpandableCardText from "@/components/home/ExpandableCardText";
-import type { HeroSettings, PortfolioItem, ServiceItem } from "@/lib/types/cms";
+import type { HeroSettings, PortfolioItem } from "@/lib/types/cms";
 
 const fallbackHero: HeroSettings = {
   id: "hero",
@@ -92,10 +92,6 @@ export default async function HomePage() {
         ),
       }
     : fallbackHero;
-  const services = servicesSnapshot.docs.map((entry) => ({
-    id: entry.id,
-    ...(entry.data() as Omit<ServiceItem, "id">),
-  }));
   const portfolio = portfolioSnapshot.docs.map((entry) => ({
     id: entry.id,
     ...(entry.data() as Omit<PortfolioItem, "id">),
@@ -137,24 +133,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-6xl">
-        <SectionHeading>Services</SectionHeading>
-        <div className="flex snap-x gap-5 overflow-x-auto pb-3">
-          {(services.length ? services : []).slice(0, 6).map((service) => (
-            <article
-              key={service.id}
-              className="w-[min(90vw,24rem)] shrink-0 snap-start rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-neutral-700 dark:bg-neutral-900"
-            >
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-white">{service.title}</h3>
-              <ExpandableCardText
-                text={service.description}
-                wordLimit={80}
-                className="mt-2 text-neutral-600 dark:text-neutral-300"
-              />
-            </article>
-          ))}
-        </div>
-      </section>
 
       <section className="mx-auto mt-14 max-w-6xl rounded-3xl border border-neutral-200 bg-gradient-to-r from-cyan-50 to-sky-50 p-8 dark:border-neutral-700 dark:from-neutral-900 dark:to-neutral-800">
         <SectionHeading className="mb-0">Why Choose Us</SectionHeading>
@@ -173,14 +151,6 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
-
-               
-        
-              
-             
-            
-
-   
 
       <section className="mx-auto mt-16 max-w-6xl rounded-3xl border border-cyan-300 bg-gradient-to-r from-cyan-500 to-blue-600 p-8 text-white">
         <h2 className="text-3xl font-black md:text-4xl">Ready to build your next platform?</h2>
